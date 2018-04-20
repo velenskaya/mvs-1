@@ -10,7 +10,7 @@ class AuthController extends Controller
 {
     public function loginForm()
     {       
-        return $this->render('Auth/login', [], 'layout');
+        return $this->render('About/login', [], 'layout');
     }
 
     public function loginCheck()
@@ -41,7 +41,7 @@ class AuthController extends Controller
 
     public function registerForm()
     {       
-        return $this->render('Auth/register', [], 'layout');
+        return $this->render('About/register', [], 'layout');
     }
     
     public function register()
@@ -80,13 +80,13 @@ class AuthController extends Controller
             $user['confirmation_token'] = null;
             $model->update($user['id'], ['confirmation_token'=>null]);
             Auth::login($user);
-            return $this->render('Auth/confirmSuccess', ['confirmSuccess'=>true], 'layout');
+            return $this->render('About/confirmSuccess', ['confirmSuccess'=>true], 'layout');
         }
 
-        return $this->render('Auth/confirmSuccess', ['confirmSuccess'=>false], 'layout');
+        return $this->render('About/confirmSuccess', ['confirmSuccess'=>false], 'layout');
     }
 
     public function confirmEmail(){
-        return $this->render('Auth/confirmEmail', [], 'layout');
+        return $this->render('About/confirmEmail', [], 'layout');
     }
 }

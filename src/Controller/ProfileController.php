@@ -15,13 +15,13 @@ class ProfileController extends Controller
 
     public function index()
     {       
-        return $this->render('Profile/index', ['name' => 1111], 'layout');
+        return $this->render('Contact/index', ['name' => 1111], 'layout');
     }
 
     public function edit(){
         $user = Auth::user();
 
-        return  $this->render('Profile/edit', compact('user'), 'layout');
+        return  $this->render('Contact/edit', compact('user'), 'layout');
     }
 
     public function editSave(){

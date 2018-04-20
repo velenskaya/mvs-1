@@ -6,25 +6,20 @@ use Core\Controller;
 
 class BlogController extends Controller
 {
-    public function index()
-    {       
-        return $this->render('Main/index', ['name' => 1111], 'layout');
-    }
-
-    public function news()
+    public function newsAction()
     {
-        $model = $this->getModel('Article');
+       $model = $this->getModel('Article');
         
-        $news = $model->findAll();
+       $news = $model->findAll();
         
         return $this->render('Blog/news', compact('news'), 'layout');
     }
 
-    public function article($slug)
+    public function articleAction($id)
     {
         $model = $this->getModel('Article');
         
-        $article = $model->findOneBy(['slug' => $slug ]);
+        $article = $model->findOneBy(['id' => $id ]);
 
         return $this->render('Blog/article', compact('article'), 'layout');
     }
